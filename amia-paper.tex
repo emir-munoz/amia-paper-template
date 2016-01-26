@@ -1,0 +1,216 @@
+\documentclass[10.7pt,]{article}
+
+\usepackage[letterpaper, margin=2.54cm, top=2.54cm]{geometry}
+\usepackage[super,comma,sort&compress]{natbib}
+\usepackage{lmodern}
+\usepackage{authblk} % To add affiliations to authors
+\usepackage{amssymb,amsmath}
+\usepackage{wrapfig}
+\usepackage{graphicx,grffile}
+\usepackage[labelfont=bf,labelsep=period]{caption}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+    \setmainfont[]{Times New Roman}
+    \setsansfont[]{Century Gothic}
+    \setmonofont[Mapping=tex-ansi]{Consolas}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+	\usepackage{microtype}
+	\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+
+\usepackage{lipsum} % for dummy text only REMOVE
+
+\newtheorem{exm}{Example}
+
+
+%==============================
+% Customization to make the output PDF 
+% look similar to the MS Word version
+%==============================
+% To prevent hyphenation
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+% To set the sections font size
+\usepackage{sectsty}
+\allsectionsfont{\fontsize{10}{10}\selectfont}
+%\sectionfont{\fontsize{10}{10}\selectfont}
+\subsectionfont{\itshape\bfseries\fontsize{10}{10}\selectfont}
+\subsubsectionfont{\normalfont\itshape}
+
+% No new line after subsubsection
+\makeatletter
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+	{-3.25ex\@plus -1ex \@minus -.2ex}%
+    {-1.5ex \@plus -.2ex}% Formerly 1.5ex \@plus .2ex
+    {\normalfont\itshape}}
+\makeatother
+
+\makeatletter % Reference list option change
+\renewcommand\@biblabel[1]{#1.} % from [1] to 1
+\makeatother %
+
+% To set the doc title font
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@maketitle}{\LARGE}{\bfseries\fontsize{15}{16}\selectfont}{}{}
+\makeatother
+
+% No page numbering
+\pagenumbering{gobble}
+
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+%==============================
+\usepackage{hyperref}
+\hypersetup{
+	unicode=true,
+	pdftitle={My Cool Title Here},
+	pdfauthor={Author One, Author Two, Author Three},
+	pdfkeywords={keyword1, keyword2},
+	pdfborder={0 0 0},
+	breaklinks=true
+}
+\urlstyle{same}  % don't use monospace font for urls
+%==============================
+
+% reduce space between title and begining of page
+\title{\vspace{-2em} My Cool Title Here}
+\author[ ]{\bf\fontsize{13}{14}\selectfont Author One, MD\textsuperscript{1,2}, Author Two,
+PhD\textsuperscript{2}, Author Three,PhD\textsuperscript{1}\vspace{-.7em}}
+\affil[1]{\bf\fontsize{13}{14}\selectfont Institution One, Country;}
+\affil[2]{\bf\fontsize{13}{14}\selectfont Institution Two, Country}
+\date{} % add no date (by default date is added)
+
+%==============================
+\begin{document}
+\maketitle
+\vspace{-4em} %separation between the affiliations and abstract
+%==============================
+
+%==============================
+\section{Abstract}\label{abstract}
+%==============================
+\emph{This is a cool work. Cool works must be accepted. So, accept this work.
+\lipsum[1]}
+
+%==============================
+\section{Introduction}\label{introduction}
+%==============================
+Use some citation here such as DrugBank\cite{drugbank}, or SIDER\cite{sider}. \lipsum[3-4]
+
+%==============================
+\section{Background}\label{background}
+%==============================
+
+\lipsum[3-4]
+
+%==============================
+\section{Methods}\label{methods}
+%==============================
+
+\lipsum[3-4]
+
+%==============================
+\subsection{Data sources}\label{data-sources}
+%==============================
+
+\lipsum[3-4]
+
+%==============================
+\subsection{Measures}\label{measures}
+%==============================
+
+%==============================
+\subsubsection{A first metric.}\label{metric-1}
+%==============================
+
+You can use all the cool math power of \LaTeX{} $A$ is defined as follows:
+
+\lipsum[3-4]
+
+%==============================
+\subsubsection{A second metric.}\label{metric-2}
+%==============================
+
+\lipsum[3-4]
+
+
+\begin{exm}
+
+This is an example \lipsum[2]
+
+\end{exm}
+
+
+%==============================
+\subsection{Evaluation}\label{evaluation}
+%==============================
+
+\lipsum[3-4]
+
+%==============================
+\section{Results}\label{results}
+%==============================
+
+\lipsum[3-4]
+
+%==============================
+\section{Discussion}\label{discussion}
+%==============================
+
+\lipsum[3-4]
+
+%==============================
+\section{Conclusion}\label{conclusion}
+%==============================
+
+\lipsum[3-4]
+
+%==============================
+\section{Acknowledgements}\label{acknowledgements}
+%==============================
+Remember to acknowledge your funding institution\ldots
+
+%==============================
+\bibliographystyle{vancouver}
+\bibliography{literature}
+%==============================
+
+\end{document}
